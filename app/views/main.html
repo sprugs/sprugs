@@ -1,23 +1,60 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="row">
+    <div class="editors-pick col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="section-tag">
+            <h4>Editors pick</h4>
+        </div>
+        <div class="row">
+            <div ng-repeat="content in editorsPick" class="content-overview col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <img ng-src="{{content.imgSrc}}" class="img-responsive">
+                <div class="content-desc">
+                    <h4>{{content.title}}</h4>
+                    <p class="desc">{{content.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+    <aside class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="popular">
+            <div class="section-tag">
+                <h4>Popular</h4>
+            </div>
+            <ul class="list-unstyled">
+                <li class="list-card" ng-repeat="content in popular">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object img-thumbnail img-responsive " width="100px" height="100px" ng-src="{{content.imgSrc}}"/>
+                        </div>
+                        <div class="media-body">
+                            <div class="media-heading">
+                                <h4>{{content.title}}</h4>
+                                <h6 class="pp-muted-text">{{content.author}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+        <div class="latest">
+            <div class="section-tag">
+                <h4>Latest</h4>
+            </div>
+            <ul class="list-unstyled">
+                <li class="list-card" ng-repeat="content in latest">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object img-thumbnail img-responsive" width="100px" height="100px" ng-src="{{content.imgSrc}}"/>
+                        </div>
+                        <div class="media-body">
+                            <div class="media-heading">
+                                <h4>{{content.title}}</h4>
+                                <h6 class="pp-muted-text">{{content.author}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
 </div>

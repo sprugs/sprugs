@@ -7,11 +7,18 @@
  * # MainCtrl
  * Controller of the sportApp
  */
-angular.module('sportApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var app = angular.module('sportApp');
+
+app.controller('MainCtrl', function ($scope,$http) {
+	$http.get('../scripts/json/data.json')
+	.success(function(data){
+		$scope.editorsPick 	= data.editorsPick;
+		$scope.popular 		= data.popular;
+		$scope.latest 		= data.latest;
+	})
+	.error(function(error){
+		
+	});
+
+})
+  
