@@ -31,6 +31,9 @@ angular
         templateUrl: 'views/detail.html',
         controller: 'DetailsCtrl'
       })
+      .when('/googleeecd4edb9fdbd86e.html',{
+        templateUrl: '/googleeecd4edb9fdbd86e.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
