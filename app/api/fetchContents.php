@@ -9,7 +9,7 @@
 
 	$result = $dao->fetchData("SELECT * FROM contents_test");
 
-	$contentsWrapper = []; 
+	$contentsWrapper = array(); 
 
 	foreach ($result as $row) {
 		$content = new AbstractContent($row['title'],$row['desc'],$row['imgsrc'],$row['author'],$row['comments']);
