@@ -2,12 +2,16 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Sports drug</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
+    <!-- build:css(./app) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="scripts/vendors/bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="scripts/vendors/bower_components/bootstrap-css-only/css/bootstrap.css" />
+    <link rel="stylesheet" href="scripts/vendors/bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="scripts/vendors/bower_components/textAngular/src/textAngular.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -18,8 +22,8 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="header clearfix">
-      <img src="images/logo.png" class="pull-left"/>
+    <div class="header row">
+      <img src="images/logo.png" class="col-lg-1 col-md-1 col-sm-2 col-xs-3 img-responsive"/>
       <h1>Sports Drug</h1>
     </div>
 
@@ -42,8 +46,16 @@
     <script src="scripts/vendors/bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="scripts/vendors/bower_components/angular-resource/angular-resource.js"></script>
     <script src="scripts/vendors/bower_components/angular-route/angular-route.js"></script>
-    <script src="scripts/vendors/bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="scripts/vendors/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="scripts/vendors/bower_components/rangy/rangy-core.js"></script>
+    <script src="scripts/vendors/bower_components/rangy/rangy-classapplier.js"></script>
+    <script src="scripts/vendors/bower_components/rangy/rangy-highlighter.js"></script>
+    <script src="scripts/vendors/bower_components/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="scripts/vendors/bower_components/rangy/rangy-serializer.js"></script>
+    <script src="scripts/vendors/bower_components/rangy/rangy-textrange.js"></script>
+    <script src="scripts/vendors/bower_components/textAngular/src/textAngular.js"></script>
+    <script src="scripts/vendors/bower_components/textAngular/src/textAngular-sanitize.js"></script>
+    <script src="scripts/vendors/bower_components/textAngular/src/textAngularSetup.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -51,6 +63,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/create.js"></script>
+        <script src="scripts/controllers/detail.js"></script>
+        <script src="scripts/directives/directives.js"></script>
         <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -60,7 +75,7 @@
       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-XXXXX-X');
+      ga('create', 'UA-63076571-1');
       ga('send', 'pageview');
     </script>
 </body>

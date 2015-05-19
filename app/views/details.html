@@ -1,0 +1,27 @@
+<section class="row">
+	<aside class="col-lg-3 col-md-2 col-sm-2 hidden-xs">
+		<div class="author-details-wrapper">
+			<div class="media">
+			  <div class="media-left">
+			    <a href="#">
+			      <img width="75px" height="75px" alt="..." src="../images/texture1.png" class="media-object img-circle img-thumbnail">
+			    </a>
+			  </div>
+			  <div class="media-body">
+			    <h3 class="media-heading">{{article.author.fname}}&nbsp;{{article.author.lname}}</h3>
+			    ...
+			  </div>
+			</div>
+
+		</div>
+	</aside>
+	<article class="content-details-wrapper col-lg-9 col-md-10 col-sm-12 col-xs-12">
+		<div class="img-banner">
+			<div class="black-filter-layer"></div>
+			<h1 class="title"> {{article.title}}</h1>
+		</div>
+
+		<div class="content-detail" ng-bind-html="article.content"></div>
+
+	</article>
+</section>
