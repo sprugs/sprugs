@@ -1,21 +1,23 @@
 <?php  
-	require "Dao.php";
-	require "Constants.php";
+	require "Helper.php";
 	require "AbstractContent.php";
 
 	header('content-type:application/json');
 
 	$dao = new DAO(DBUSERNAME,DBPASSWD,DBHOST,DBNAME);
 
-	$result = $dao->fetchData("SELECT * FROM contents_test");
+	//TODO addd helper function to query with limits
+	$actions = new DBHelper();
+
+	$result = $actions->fetchContents(0,30); 
 
 	$contentsWrapper = array(); 
-
 	foreach ($result as $row) {
-		$content = new AbstractContent($row['title'],$row['desc'],$row['imgsrc'],$row['author'],$row['comments']);
+
+		$content = new AbstractContent($row['id'],$row['title'],$row['img'],$row['summary'],$row['description'],$row['authorid'],$row['rating'],$row['noofviews'],$row['createdts']);
 		array_push($contentsWrapper, $content);
 	}
 	
-	echo json_encode($contentsWrapper);
+	echo $actions->parseContentsArray($contentsWrapper);
 
 ?>

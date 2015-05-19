@@ -88,5 +88,29 @@
 			
 		}
 
+		public function addData($data){
+			if(!$this->conn){
+				$this->conn = $this->connectToDB();
+			}
+
+			try{
+				$stmt = $conn->prepare('INSERT INTO `sprugs`.`content` (`title`, `img`, `summary`, `description`, `authorid`, `rating`, `noofviews`, `createdts`) VALUES (:title,:img:summary:description,:author,:rating,:noofviews,:createdts)');
+				$stmt->bindParam(':title', $data->title);
+				$stmt->bindParam(':img', $data->img);
+				$stmt->bindParam(':summary', $data->summary);
+				$stmt->bindParam(':description', $data->description);
+				$stmt->bindParam(':author', $data->author);
+				$stmt->bindParam(':rating', $data->rating);
+				$stmt->bindParam(':noofviews', $data->noofviews);
+				$stmt->bindParam(':createdts', $data->createdts);
+				$stmt->execute();
+
+			}catch(PDOException $e){
+		    	echo "Connection failed: " . $e->getMessage();
+		    	return false;
+		    }
+			
+		}
+
 	}
 ?>

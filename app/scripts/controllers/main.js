@@ -10,11 +10,12 @@
 var app = angular.module('sportApp');
 
 app.controller('MainCtrl', function ($scope,$http) {
-	$http.get('/api/fetchContents.php')
+	//$http.get('/api/fetchContents.php')
+	$http.get('scripts/json/data.json')
 	.success(function(data){
-		$scope.editorsPick 	= data;
-		$scope.popular 		= data;
-		$scope.latest 		= data;
+		$scope.editorsPick 	= data.editorsPick;
+		$scope.popular 		= data.popular;
+		$scope.latest 		= data.latest;
 	})
 	.error(function(error){
 		

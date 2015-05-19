@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'textAngular'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -28,8 +29,12 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/detail', {
-        templateUrl: 'views/detail.html',
+        templateUrl: 'views/details.html',
         controller: 'DetailsCtrl'
+      })
+      .when('/create',{
+        templateUrl: 'views/create.html',
+        controller:  'CreateCtrl'
       })
       .when('/googleeecd4edb9fdbd86e.html',{
         templateUrl: '/googleeecd4edb9fdbd86e.html'

@@ -1,51 +1,84 @@
 <?php 
  class AbstractContent{
+ 	public $id	 		= "";
  	public $title 		= "";
- 	public $desc   		= "";
- 	public $imgsrc 		= "";
- 	public $author  	= "";
- 	public $comments 	= "";
+ 	public $img 		= "";
+ 	public $summary		= "";
+ 	public $description	= "";
+ 	public $author 		= "";
+ 	public $rating	 	= "";
+ 	public $noofviews 	= "";
+ 	public $createdts	= "";
 
 
+ 	public function getId(){
+ 		return $this->id;
+ 	}
  	public function getTitle(){
  		return $this->title;
  	}
- 	public function getDesc(){
- 		return $this->desc;
+ 	public function getImg(){
+ 		return $this->img;
  	}
- 	public function getImgsrc(){
- 		return $this->imgsrc;
+ 	public function getSummary(){
+ 		return $this->summary;
+ 	}
+ 	public function getDescription(){
+ 		return $this->description;
  	}
  	public function getAuthor(){
  		return $this->author;
  	}
- 	public function getComments(){
- 		return $this->comments;
+ 	public function getRating(){
+ 		return $this->rating;
+ 	}
+ 	public function getNoofviews(){
+ 		return $this->noofviews;
+ 	}
+ 	public function getCreatedts(){
+ 		return $this->createdts;
  	}
 
 
+ 	public function setId($id){
+ 		$this->id = $id;
+ 	}
  	public function setTitle($title){
- 		$this->title = $title;
+ 		$this->title =  (string)$title;
  	}
- 	public function setDesc($desc){
- 		$this->desc = $desc;
+ 	public function setImg($img){
+ 		$this->img = (string)$img;
  	}
- 	public function setImgsrc($imgsrc){
- 		$this->imgsrc = $imgsrc;
+ 	public function setDescription($desc){
+ 		$this->description = (string)$desc;
  	}
+ 	public function setSummary($summary){
+ 		$this->summary = (string)$summary;
+ 	} 
  	public function setAuthor($author){
  		$this->author = $author;
  	}
- 	public function setComments($comments){
- 		$this->comments = $comments;
+ 	public function setRating($rating){
+ 		$this->rating = $rating;
+ 	}
+ 	public function setNoofviews($noofviews){
+ 		$this->noofviews = $noofviews;
+ 	}
+ 	public function setCreatedts($createdts){
+ 		$this->createdts = $createdts;
  	}
 
- 	function __construct($title,$desc,$imgsrc,$author,$comments){
+ 	function __construct($id,$title,$img,$summary,$desc,$author,$rating,$noofviews,$createdts){
+
+ 		$this->setId($id);
  		$this->setTitle($title);
- 		$this->setDesc($desc);
- 		$this->setImgsrc($imgsrc);
+ 		$this->setImg($img);
+ 		$this->setSummary($summary);
+ 		$this->setDescription($desc);
  		$this->setAuthor($author);
- 		$this->setComments($comments);
+ 		$this->setRating($rating);
+ 		$this->setNoofviews($noofviews);
+ 		$this->setCreatedts($createdts);
  	}
 
 
