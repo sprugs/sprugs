@@ -69,7 +69,12 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729
+        livereload: 35729,
+        proxies: [{
+          context: '/api',
+          host: 'localhost/dist',
+          port: 80 // the port that the data service is running on
+        }],
       },
       livereload: {
         options: {
@@ -376,7 +381,6 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*',
             'scripts/json/*.json',
             'api/*.*'
           ]
@@ -424,6 +428,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-connect-proxy');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {

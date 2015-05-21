@@ -12,11 +12,10 @@ var app = angular.module('sportApp');
 app.controller('CreateCtrl', function ($scope,$http) {
 
 	$scope.process = {
-		"createContent" 		: function(title,content){
-			console.debug("hello");
+		'createContent' 		: function(title,content){
 			var request 	= {
-				"title" 		: title,
-				"descriptipn" 	: content
+				'title' 		: title,
+				'description' 	: content
 			};
 
 
@@ -25,11 +24,7 @@ app.controller('CreateCtrl', function ($scope,$http) {
 			}).error(function(error){
 
 			});
-		},
-		"word" 		: function(){
-			alert();
 		}
 	};
 
-})
-  
+});

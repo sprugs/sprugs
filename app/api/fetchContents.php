@@ -9,15 +9,28 @@
 	//TODO addd helper function to query with limits
 	$actions = new DBHelper();
 
-	$result = $actions->fetchContents(0,30); 
+	switch ($_GET['type']) {
+		case 'detail':
+			$id = $_GET['id'];
+			$result = $actions->fetchDetails($id,'blog');
 
-	$contentsWrapper = array(); 
-	foreach ($result as $row) {
+			echo $actions->parseContentsArray($result);
+			break;
+		
+		default:
+			$result = $actions->fetchContents(0,30); 
 
-		$content = new AbstractContent($row['id'],$row['title'],$row['img'],$row['summary'],$row['description'],$row['authorid'],$row['rating'],$row['noofviews'],$row['createdts']);
-		array_push($contentsWrapper, $content);
+			$contentsWrapper = array(); 
+			foreach ($result as $row) {
+
+				$content = new AbstractContent($row['id'],$row['title'],$row['img'],$row['summary'],$row['description'],$row['authorid'],$row['rating'],$row['noofviews'],$row['createdts']);
+				array_push($contentsWrapper, $content);
+			}
+			
+			echo $actions->parseContentsArray($contentsWrapper);
+			break;
 	}
+
 	
-	echo $actions->parseContentsArray($contentsWrapper);
 
 ?>

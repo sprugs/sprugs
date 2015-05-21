@@ -20,7 +20,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/home', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -28,7 +28,7 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/detail', {
+      .when('/detail/:type/:id', {
         templateUrl: 'views/details.html',
         controller: 'DetailsCtrl'
       })
@@ -40,6 +40,6 @@ angular
         templateUrl: '/googleeecd4edb9fdbd86e.html'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
   });

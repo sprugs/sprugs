@@ -9,17 +9,34 @@
  */
 var app = angular.module('sportApp');
 
-app.controller('MainCtrl', function ($scope,$http) {
-	//$http.get('/api/fetchContents.php')
-	$http.get('scripts/json/data.json')
+/*app.factory('fetchContents',function($resource){
+	return $resource('api/fetchContents.php',{},{
+			query: {
+			 	method:'GET',
+			 	isArray:true
+			}
+	});
+});*/
+
+app.controller('MainCtrl', function ($scope,$http,$location) {
+	$http.get('api/fetchContents.php')
+	//$http.get('scripts/json/data.json')
 	.success(function(data){
-		$scope.editorsPick 	= data.editorsPick;
-		$scope.popular 		= data.popular;
-		$scope.latest 		= data.latest;
+		$scope.editorsPick 	= data;
+		$scope.popular 		= data;
+		$scope.latest 		= data;
 	})
 	.error(function(error){
 		
 	});
 
-})
+	$scope.process = {
+		'navigateToDetails' : function(content){
+			$location.url('/detail/detail/'+content.id);
+		}
+	}
+
+	
+
+});
   

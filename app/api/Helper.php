@@ -23,6 +23,13 @@
 			return $result;
 		}
 
+		public function fetchDetails($id,$type){
+			$sql = "SELECT * FROM `content` where id = ". $id;
+			$result = $this->dao->fetchData($sql);
+			
+			return $result;
+		}
+
 		public function parseContentsArray($arr){
 			$jsonDecode = json_decode($arr[0]);
 			//echo $jsonDecode;
@@ -35,10 +42,12 @@
 					$temp .= "{";
 
 					foreach ($row as $key => $value) {
-
+						$key = "\"".$key."\"";
 						$value = "\"".$value."\"";
 						$temp .= $key.":".$value.",";
 					}
+
+					$temp = rtrim($temp,",");
 					if($index+1<$len){
 						$temp .= "},";
 						$index++;

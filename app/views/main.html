@@ -5,7 +5,7 @@
                 <h4> <i class="fa fa-bullhorn"></i> Editors pick</h4>
             </div>
             <div class="row padding-15">
-                <div ng-repeat="content in editorsPick" class="content-overview col-lg-6 col-md-6 col-sm-6 col-xs-6" navigate-to-details detail-obj="content">
+                <div ng-repeat="content in editorsPick" class="content-overview col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="process.navigateToDetails(content)">
                     <img ng-src="{{content.imgSrc}}" class="img-responsive">
                     <div class="content-desc">
                         <h4>{{content.title}}</h4>
@@ -47,7 +47,7 @@
                 <h4><i class="fa fa-star"></i>  Popular</h4>
             </div>
             <ul class="list-unstyled">
-                <li class="list-card" ng-repeat="content in popular">
+                <li class="list-card" ng-repeat="content in popular | limitTo:3">
                     <div class="media">
                         <div class="media-left">
                             <img class="media-object img-thumbnail img-responsive " width="100px" height="100px" ng-src="{{content.imgSrc}}"/>
@@ -71,7 +71,7 @@
                 <h4><i class="fa fa-flash"></i> Trending</h4>
             </div>
             <ul class="list-unstyled">
-                <li class="list-card" ng-repeat="content in latest">
+                <li class="list-card" ng-repeat="content in latest | limitTo:3">
                     <div class="media">
                         <div class="media-left">
                             <img class="media-object img-thumbnail img-responsive" width="100px" height="100px" ng-src="{{content.imgSrc}}"/>

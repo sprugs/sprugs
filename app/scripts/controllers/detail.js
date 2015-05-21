@@ -9,21 +9,23 @@
  */
 var app = angular.module('sportApp');
 
-app.controller('DetailsCtrl', function ($scope,$http,$sce) {
+app.controller('DetailsCtrl', function ($scope,$http,$sce,$routeParams) {
 
+	$scope.detail = $routeParams;
 	$scope.article = {};
 	console.log($sce);
 
-	$http.get('scripts/json/details.json')
+	//$http.get('scripts/json/details.json');
+	$http.get('api/fetchContents.php?id='+$scope.detail.id+'&type='+$scope.detail.type)
 	.success(function(data){
-		$scope.article.title 		= data.title;
-		$scope.article.author 		= data.author;
-		$scope.article.content 		= $sce.trustAsHtml(data.content)
+		$scope.article.title 		= data[0].title;
+		$scope.article.author 		= data[0].author;
+		$scope.article.content 		= $sce.trustAsHtml(data[0].description);
 		
 	})
 	.error(function(error){
 		
 	});
 
-})
+});
   
