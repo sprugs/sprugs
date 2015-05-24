@@ -93,7 +93,7 @@
 				$this->conn = $this->connectToDB();
 			}
 			try{
-				$stmt = $this->conn->prepare('INSERT INTO `sprugs`.`content` (`title`, `img`, `summary`, `description`, `authorid`, `rating`, `noofviews`) VALUES (:title,:img,:summary,:description,:author,:rating,:noofviews)');
+				$stmt = $this->conn->prepare('INSERT INTO `content` (`title`, `img`, `summary`, `description`, `authorid`, `rating`, `noofviews`) VALUES (:title,:img,:summary,:description,:author,:rating,:noofviews)');
 				$stmt->bindParam(':title', $data->title);
 				$stmt->bindParam(':img', $data->img);
 				$stmt->bindParam(':summary', $data->summary);
