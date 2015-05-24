@@ -92,9 +92,8 @@
 			if(!$this->conn){
 				$this->conn = $this->connectToDB();
 			}
-
 			try{
-				$stmt = $conn->prepare('INSERT INTO `sprugs`.`content` (`title`, `img`, `summary`, `description`, `authorid`, `rating`, `noofviews`, `createdts`) VALUES (:title,:img:summary:description,:author,:rating,:noofviews,:createdts)');
+				$stmt = $this->conn->prepare('INSERT INTO `sprugs`.`content` (`title`, `img`, `summary`, `description`, `authorid`, `rating`, `noofviews`) VALUES (:title,:img,:summary,:description,:author,:rating,:noofviews)');
 				$stmt->bindParam(':title', $data->title);
 				$stmt->bindParam(':img', $data->img);
 				$stmt->bindParam(':summary', $data->summary);
@@ -102,11 +101,16 @@
 				$stmt->bindParam(':author', $data->author);
 				$stmt->bindParam(':rating', $data->rating);
 				$stmt->bindParam(':noofviews', $data->noofviews);
-				$stmt->bindParam(':createdts', $data->createdts);
 				$stmt->execute();
 
+				$query = "SELECT `id` FROM `content` WHERE `title`='".$data->title."' and `description`='".$data->description."' and `authorid`='".$data->author."'";
+				$result = $this->fetchData($query);
+
+				var_dump($result);
+				return true;
+
 			}catch(PDOException $e){
-		    	echo "Connection failed: " . $e->getMessage();
+		    	//echo "Connection failed: " . $e->getMessage();
 		    	return false;
 		    }
 			

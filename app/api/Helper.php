@@ -11,8 +11,7 @@
 		}
 
 		public function addContent($content){
-			$result = $dao->addData($content);
-
+			$result = $this->dao->addData($content);
 			return $result;
 		}
 
@@ -29,6 +28,7 @@
 			
 			return $result;
 		}
+
 
 		public function parseContentsArray($arr){
 			$jsonDecode = json_decode($arr[0]);

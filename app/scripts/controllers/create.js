@@ -13,6 +13,7 @@ app.controller('CreateCtrl', function ($scope,$http) {
 
 	$scope.process = {
 		'createContent' 		: function(title,content){
+
 			var request 	= {
 				'title' 		: title,
 				'description' 	: content
