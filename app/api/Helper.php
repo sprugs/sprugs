@@ -1,7 +1,8 @@
 <?php
 
-	require "Dao.php";
-	require "Constants.php";
+	require_once "Dao.php";
+	require_once "AbstractSession.php";
+	require_once "Constants.php";
 	
 	class DBHelper{
 		private $dao;
@@ -64,4 +65,68 @@
 			}
 		}
 	} 
+
+	class SessionHelper{
+		private $session;
+
+		function __construct($uname){
+			if($uname){
+				$authToken = $this->generateAuthToken($uname);
+				$this->session = new AbstractSession($uname,$authToken);
+			}else{
+				$this->session = NULL;
+			}
+		}
+
+		public function generateAuthToken($uname){
+			
+			$authToken = md5($uname.",".((string)time()).",".$_SERVER['SERVER_ADDR']);
+			return $authToken;
+
+		}
+
+		public function initSession($sessionName){
+			session_name(SESSION_NAME);
+			session_set_cookie_params(SESSION_TIMEOUT);
+			if($sessionName){
+				session_start($sessionName);
+			}else{
+				session_start();
+			}
+		}
+
+		public function validateSession(){
+
+			if(isset($_COOKIE[SESSION_NAME])){
+				$this->initSession($_COOKIE[SESSION_NAME]);
+
+				return true;
+			}
+			return false;
+
+		}
+
+		public function setActiveSession(){
+			if ($this->session && !isset($_SESSION['token']) && !isset($_SESSION['uname']) && !isset($_SESSION['createdts'])) {
+			    
+			    $this->initSession($_COOKIE[SESSION_NAME]);
+
+			    $_SESSION['token'] = $this->session->getAuthToken();
+			    $_SESSION['uname'] = $this->session->getUserName();
+			    $_SESSION['createdts'] = time();
+
+			    session_write_close();
+			 	return 1;  
+			}
+			return -1;
+		}
+
+		public function destroyActiveSession(){
+			if(session_id()!="" || isset($_COOKIE[session_name()]))	{
+				setcookie(session_name(), '', time() - 2592000, '/');
+				var_dump($_COOKIE);
+				session_destroy();
+			}
+		}
+	}
 ?>

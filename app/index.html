@@ -22,13 +22,54 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="header row">
-      <h1><a href="#/home">
-        <img src="images/logo.png" class="col-lg-1 col-md-1 col-sm-2 col-xs-3 img-responsive"/>
-      
-      Sports Drug</a></h1>
+        
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <h1 class="row">
+                <a href="#/home" class="title">
+                    <img src="images/logo.png" class="col-lg-1 col-md-1 col-sm-2 col-xs-3 img-responsive"/>
+                    <span>Sports Drug</span>
+                </a>
+             </h1>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 clearfix">
+            <div class="dropdown pull-right">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    <img src="images/logo.png" width="50px" height="50px" class="img-circle">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#/">
+                            <i class="fa fa-user"></i>&nbsp;My profile
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#/create">
+                            <i class="fa fa-plus"></i>&nbsp;Add Post
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#/">
+                            <i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
+                </ul>
+            </div>
+        </div>
+       
     </div>
 
-    <div ng-view class="container-fluid page-wrapper"></div>
+    <div class="breadcrumb" ng-cloak>
+        <nav class="list-inline" ng-show="currentPage">
+            <li>
+                <a href="#/">
+                    <i class="fa fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li>
+                 <i class="fa fa-angle-double-right"></i>
+                <a href="#/">{{currentPage}}</a></li>
+        </nav>
+    </div>
+
+    <div ng-view class="page-wrapper"></div>
 
     <div class="footer">
     </div>
@@ -69,6 +110,7 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/create.js"></script>
         <script src="scripts/controllers/detail.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
         <script src="scripts/directives/directives.js"></script>
         <!-- endbuild -->
 

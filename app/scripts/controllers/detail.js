@@ -11,10 +11,10 @@ var app = angular.module('sportApp');
 
 app.controller('DetailsCtrl', function ($scope,$http,$sce,$routeParams) {
 
+	$scope.$root.currentPage = "Details";
 	$scope.detail = $routeParams;
 	$scope.article = {};
-	console.log($sce);
-
+	
 	//$http.get('scripts/json/details.json');
 	$http.get('api/fetchContents.php?id='+$scope.detail.id+'&type='+$scope.detail.type)
 	.success(function(data){

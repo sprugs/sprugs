@@ -11,6 +11,7 @@ var app = angular.module('sportApp');
 
 app.controller('CreateCtrl', function ($scope,$http) {
 
+	$scope.$root.currentPage = "Create";
 	$scope.process = {
 		'createContent' 		: function(title,content){
 

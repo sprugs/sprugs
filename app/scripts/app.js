@@ -37,6 +37,10 @@ angular
         templateUrl: 'views/create.html',
         controller:  'CreateCtrl'
       })
+      .when('/login',{
+        templateUrl: 'views/login.html',
+        controller:  'AuthCtrl'
+      })
       .when('/googleeecd4edb9fdbd86e.html',{
         templateUrl: '/googleeecd4edb9fdbd86e.html'
       })

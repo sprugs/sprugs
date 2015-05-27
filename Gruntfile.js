@@ -1,4 +1,4 @@
-// Generated on 2015-04-18 using generator-angular 0.11.1
+3// Generated on 2015-04-18 using generator-angular 0.11.1
 'use strict';
 
 // # Globbing
@@ -70,16 +70,20 @@ module.exports = function (grunt) {
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
         livereload: 35729,
-        proxies: [{
-          context: '/api',
-          host: 'localhost/dist',
-          port: 80 // the port that the data service is running on
-        }],
+        debug:true
       },
+      proxies: [{
+        context: '/api',
+        host: 'localhost',
+        port:80
+      }],
       livereload: {
         options: {
-          open: true,
-          middleware: function (connect) {
+          //open: true,
+          /*middleware: function (connect,options) {
+
+            console.log(options);
+
             return [
               connect.static('.tmp'),
               connect().use(
@@ -92,6 +96,23 @@ module.exports = function (grunt) {
               ),
               connect.static(appConfig.app)
             ];
+          }*/
+          middleware: function (connect, options) {
+             // Setup the proxy
+              var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+
+              middlewares.push(connect.static('.tmp'),
+                connect().use(
+                  '/bower_components',
+                  connect.static('./bower_components')
+                ),
+                connect().use(
+                  '/app/styles',
+                  connect.static('./app/styles')
+                ),
+                connect.static(appConfig.app));
+
+              return middlewares;
           }
         }
       },
@@ -452,6 +473,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
+      'configureProxies',
       'connect:livereload',
       'watch'
     ]);

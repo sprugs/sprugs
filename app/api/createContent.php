@@ -1,6 +1,6 @@
 <?php
-	require "Helper.php";
-	require "AbstractContent.php";
+	require_once "Helper.php";
+	require_once "AbstractContent.php";
 
 	header('Accept: application/json');
 	header('content-type:application/json');

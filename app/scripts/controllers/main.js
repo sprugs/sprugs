@@ -19,6 +19,8 @@ var app = angular.module('sportApp');
 });*/
 
 app.controller('MainCtrl', function ($scope,$http,$location) {
+	
+	$scope.currentPage = "Home";
 	$http.get('api/fetchContents.php')
 	//$http.get('scripts/json/data.json')
 	.success(function(data){

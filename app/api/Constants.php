@@ -9,8 +9,8 @@
 	const DBPASSWD 	= "bala";
 	const DBNAME 		= "bala";
 	const DBHOST 		= "localhost";*/
-
-	/*define("DBUSERNAME","a1533421_bala");
+/*
+	define("DBUSERNAME","a1533421_bala");
 	define("DBPASSWD","ywnkmp@123");
 	define("DBNAME","a1533421_content");
 	define("DBHOST","mysql3.000webhost.com");*/
@@ -19,5 +19,11 @@
 	define("DBPASSWD","bala");
 	define("DBNAME","sprugs");
 	define("DBHOST","localhost");
+
+
+//Session constants
+	define('SESSION_TIMEOUT', 600);
+	define('SESSION_NAME', 'us');
+	
 
  ?>

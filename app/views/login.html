@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-lg-offset-4 col-md-offset-4  col-lg-4 col-md-4 col-sm-412 col-xs-12">
+		<form name="login" class="form" novalidate>
+			<fieldset class="form-group">
+				<label for="uname">Username</label>
+				<input type="text" id="uname" ng-model="uname" class="form-control"/>
+			</fieldset>
+
+			<fieldset class="form-group">
+				<label for="passwd">Password</label>
+				<input type="password" id="paswd" ng-model="passwd" class="form-control"/>
+			</fieldset>
+
+			<fieldset class="form-group text-center">
+				<input type="submit" ng-click="process.login(uname,passwd)" class="btn btn-success" value="Login"/>
+				<input type="reset" class="btn btn-warning" value="Reset"/>
+			</fieldset>
+		</form>
+	</div>
+</div>
