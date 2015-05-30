@@ -17,7 +17,6 @@ app.directive('navigateToDetails', function () {
 			window.test = $location;
 			var obj = $scope[$attrs.detailObj];
 			$element.on('click',function(){
-				alert('/details?type=&id=');
 				$location.url('/details?type=&id=');
 			});
 		}

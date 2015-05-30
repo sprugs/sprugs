@@ -15,7 +15,7 @@ angular.module('sportApp')
 	 			'isArray': false,
 	 			'params' : {}
 	 		}
-	 	})
+	 	});
 	 })
 	 .controller('AuthCtrl', function ($scope,$routeParams,Auth) {
 	    $scope.process = {
@@ -28,11 +28,11 @@ angular.module('sportApp')
 	    			console.log(data);
 	    		},function(error){
 	    			console.log(error);
-	    		})
+	    		});
 
 	    	},
 	    	'logout' 	: function(){
 
 	    	}
-	 	}
+	 	};
   });

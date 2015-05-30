@@ -8,11 +8,11 @@
  * Controller of the sportApp
  */
 angular.module('sportApp')
-  .controller('AboutCtrl', function ($scope,$routeParams) {
+  .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    $scope.$root.currentPage = "About";
+    $scope.$root.currentPage = 'About';
   });

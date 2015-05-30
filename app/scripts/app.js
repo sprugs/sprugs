@@ -17,9 +17,11 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.tinymce',
-    'textAngular'
+    'textAngular',
+    'oauth'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$locationProvider) {
+    //$locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
       .when('/home', {
         templateUrl: 'views/main.html',
@@ -43,6 +45,15 @@ angular
       })
       .when('/googleeecd4edb9fdbd86e.html',{
         templateUrl: '/googleeecd4edb9fdbd86e.html'
+      })
+      .when('/access_token=:accessToken', {
+        template: '',
+        controller: function ($location, AccessToken) {
+          var hash = $location.path().substr(1);
+          AccessToken.setTokenFromString(hash);
+          $location.path('/');
+          $location.replace();
+        }
       })
       .otherwise({
         redirectTo: '/home'

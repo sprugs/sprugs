@@ -39,6 +39,8 @@ module.exports = function(config) {
       'app/scripts/vendors/bower_components/textAngular/src/textAngular.js',
       'app/scripts/vendors/bower_components/textAngular/src/textAngular-sanitize.js',
       'app/scripts/vendors/bower_components/textAngular/src/textAngularSetup.js',
+      'app/scripts/vendors/bower_components/ngstorage/ngStorage.js',
+      'app/scripts/vendors/bower_components/oauth-ng/dist/oauth-ng.js',
       'app/scripts/vendors/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
